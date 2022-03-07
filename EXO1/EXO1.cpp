@@ -1,21 +1,41 @@
-// EXO1.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <time.h>
+#include <math.h>
+#include <stdio.h>
 
+void minmax(int *tab, int taille,int *min, int *max) {
+
+	for (int i = 0; i < taille; i++)
+	{
+			if (tab[i] < *min)
+			{
+				*min = tab[i];
+			}
+			if (tab[i] > *max)
+			{
+				*max = tab[i];
+			}
+	}
+
+}
 int main()
 {
-    std::cout << "Hello World!\n";
+	srand(time(NULL));
+	int taille = rand() % 10;
+	std::cout << taille << "\n";
+	int *tab = new int[taille];
+	for (int i = 0; i < taille; i++)
+	{
+	tab[i] = rand() % 30;
+	}
+	int max = tab[0];
+	int min = tab[0];
+	minmax(tab, taille, &min, &max);
+	std::cout << " le min est " << min << "\n";
+	std::cout << " le max est " << max << "\n";
+	return 0;
+
+
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
-kiiuuyhg
